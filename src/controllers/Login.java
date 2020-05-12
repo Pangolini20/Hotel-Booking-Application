@@ -16,9 +16,29 @@ public class Login
     @FXML Button log_button;
     @FXML TextField user_text;
     @FXML PasswordField pass_field;
+    @FXML Button reg_button;
 
-    public void doSth()
+    public void authentification()
     {
+    }
+
+     public void goto_register()
+    {
+        Stage stage;
+        Parent root=null;
+
+
+        stage = (Stage) reg_button.getScene().getWindow();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
 
     }
 }
