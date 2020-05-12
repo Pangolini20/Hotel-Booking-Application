@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #add8e6;" xmlns="http://javafx.com/javafx/8.0.251" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Login">
+   <children>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="50.0" spacing="10.0">
+         <children>
+            <Label id="user_label" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="54.0" text="Username" />
+            <TextField id="user_field" promptText="Username" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="30.0" prefWidth="50.0" spacing="10.0">
+         <children>
+            <Label id="passw_label" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="52.0" text="Password" />
+            <PasswordField promptText="Password" />
+         </children>
+      </HBox>
+      <Button id="login_buton" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Login" />
+   </children>
+</VBox>
