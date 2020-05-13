@@ -2,48 +2,19 @@
 <java version="11.0.6" class="java.beans.XMLDecoder">
  <object class="Database.Customer">
   <void property="full_name">
-   <string>0753109430</string>
+   <string>Darius</string>
   </void>
   <void property="password">
-   <string>Darius Opritoiu</string>
+   <string>2CF24DBA5FB0A30E26E83B2AC5B9E29E1B161E5C1FA7425E73043362938B9824</string>
   </void>
   <void property="phone">
-   <string>carrot</string>
+   <string>123452</string>
   </void>
   <void property="role">
    <string>Customer</string>
   </void>
   <void property="username">
-   <string>dariuso</string>
-  </void>
- </object>
-</java>
-<?xml version="1.0" encoding="UTF-8"?>
-<java version="11.0.6" class="java.beans.XMLDecoder">
- <object class="Database.HotelOwner">
-  <void property="EIN">
-   <string>3214124131</string>
-  </void>
-  <void property="address">
-   <string>timisoara</string>
-  </void>
-  <void property="facilities">
-   <string>wifi,pool,room service</string>
-  </void>
-  <void property="full_name">
-   <string>03131222</string>
-  </void>
-  <void property="password">
-   <string>Paul Savu</string>
-  </void>
-  <void property="phone">
-   <string>paulboss</string>
-  </void>
-  <void property="role">
-   <string>HotelOwner</string>
-  </void>
-  <void property="username">
-   <string>paulsavu</string>
+   <string>pang</string>
   </void>
  </object>
 </java>
