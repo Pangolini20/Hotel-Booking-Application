@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.6" class="java.beans.XMLDecoder">
+ <object class="Database.Customer">
+  <void property="full_name">
+   <string>Darius</string>
+  </void>
+  <void property="password">
+   <string>2CF24DBA5FB0A30E26E83B2AC5B9E29E1B161E5C1FA7425E73043362938B9824</string>
+  </void>
+  <void property="phone">
+   <string>123452</string>
+  </void>
+  <void property="role">
+   <string>Customer</string>
+  </void>
+  <void property="username">
+   <string>pang</string>
+  </void>
+ </object>
+</java>
