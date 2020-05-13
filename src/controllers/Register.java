@@ -120,6 +120,7 @@ public class Register implements Initializable
 
     }
 
+
     public void create_obj()
     {
         HotelOwner user;
