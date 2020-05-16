@@ -1,12 +1,12 @@
 package Database;
 
-public class Customer extends User implements java.io.Serializable{
+public class Customer extends User {
 
     public Customer() {
     }
 
     public Customer(String username, String password, String full_name, String phone) {
-        super(username, password, full_name, phone);
+        super(username,password,full_name,phone);
     }
 
     @Override

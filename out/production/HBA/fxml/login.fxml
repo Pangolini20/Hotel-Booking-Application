@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #add8e6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Login">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #add8e6;" xmlns="http://javafx.com/javafx/8.0_251" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Login">
    <HBox alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="50.0" spacing="10.0">
       <Label id="user_label" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="54.0" text="Username"/>
       <TextField id="user_field" fx:id="user_text" promptText="Username"/>

@@ -2,6 +2,7 @@ package controllers;
 
 import Database.Customer;
 import Database.HotelOwner;
+import Database.User;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,9 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import java.beans.XMLEncoder;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
@@ -28,6 +26,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import static Database.Security.generateHash;
+
+import static Tools.XMLCreator.createXMLnode;
 
 public class Register implements Initializable
 {
@@ -39,24 +39,10 @@ public class Register implements Initializable
     private ChoiceBox  role;
     @FXML private HBox HB1,HB2,HB3;
 
-
-
-    public void writeXML(Object o)
+    public void writeXML(User o)
     {
+        createXMLnode(o);
 
-        try
-        {
-            File file= new File("./src/database.xml");
-            FileOutputStream fos=new FileOutputStream(file,true);
-            XMLEncoder encoder= new XMLEncoder(fos);
-            encoder.writeObject(o);
-            encoder.close();
-            fos.close();
-        }
-        catch (IOException e)
-        {
-            System.out.println(e.getMessage());
-        }
     }
 
     private boolean checkEmpty()
@@ -148,12 +134,11 @@ public class Register implements Initializable
         }
         else
         {
-            user_c=new Customer(userfield.getText(),hashed_password,full_name.getText(),
+            user_c=new Customer(userfield.getText(),hashed_password, full_name.getText(),
                     phone.getText());
             user_c.setRole("Customer");
             writeXML(user_c);
         }
-
 
     }
 

@@ -1,14 +1,13 @@
 package Database;
 
-public class HotelOwner extends Customer {
+public class HotelOwner extends User {
 
     private String EIN,address,facilities;
 
-    public HotelOwner(String username, String password, String full_name,
-                      String phone, String ein, String address, String facilities)
+    public HotelOwner(String username, String password, String full_name, String phone,String ein,String address,String facilities)
     {
-        super(username, password, full_name, phone);
-        EIN = ein;
+        super(username,password,full_name,phone);
+        this.EIN = ein;
         this.address = address;
         this.facilities = facilities;
     }

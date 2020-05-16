@@ -1,22 +1,35 @@
 package controllers;
 
+import Database.User;
+import Tools.LoadDatabase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
-public class Login
+import java.io.IOException;
+import java.net.URL;
+
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class Login implements Initializable
 {
     @FXML Button log_button;
     @FXML TextField user_text;
     @FXML PasswordField pass_field;
     @FXML Button reg_button;
+
+    private List<User> list;
+
+    private void check_credentials()
+    {
+
+    }
 
     public void authentification()
     {
@@ -41,5 +54,10 @@ public class Login
         stage.show();
 
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        LoadDatabase.readDB();
     }
 }
