@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
+
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -15,7 +17,7 @@ public class Main extends Application{
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.setTitle("Hotel Booking Application");
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root, 600, 400));
         stage.show();
 
     }
