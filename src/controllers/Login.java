@@ -48,10 +48,31 @@ public class Login implements Initializable
     public void authentification()
     {
         try {
-            System.out.println(check_credentials());
+            if(check_credentials())
+            {
+                goto_mm_hotel_owner();
+            }
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+    }
+
+    public void goto_mm_hotel_owner()
+    {
+        Stage stage;
+        Parent root=null;
+
+        stage = (Stage) log_button.getScene().getWindow();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/fxml/hotelowner/mainmenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
      public void goto_register()
@@ -79,9 +100,5 @@ public class Login implements Initializable
         obj.readDB();
         database=obj.getArray();
 
-       /* for(User e : database)
-        {
-            System.out.println(e.toString());
-        }*/
     }
 }

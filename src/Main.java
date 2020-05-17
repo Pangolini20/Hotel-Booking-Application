@@ -7,8 +7,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
-
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -19,7 +17,6 @@ public class Main extends Application{
         stage.setTitle("Hotel Booking Application");
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
-
     }
 }
 
