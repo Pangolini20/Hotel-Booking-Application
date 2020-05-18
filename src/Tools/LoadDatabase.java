@@ -130,6 +130,8 @@ public class LoadDatabase {
             case "facilities":((HotelOwner)user).setFacilities(attrValue);
                 break;
         ///////////////////////////////////////////////////////////////////////////
+            case "role":user.setRole(attrValue);
+                break;
 
             case "username":user.setUsername(attrValue);
                 break;

@@ -47,12 +47,15 @@ public class XMLCreator {
         Element newUser=null;
         if(user instanceof HotelOwner) {
             newUser = document.createElement("hotelowner");
+            newUser.setAttribute("role",user.getRole());
             newUser.setAttribute("EIN",((HotelOwner) user).getEIN());
             newUser.setAttribute("address",((HotelOwner) user).getAddress());
             newUser.setAttribute("facilities",((HotelOwner) user).getFacilities());
         }
-        else if(user instanceof Customer)
-             newUser= document.createElement("customer");
+        else if(user instanceof Customer) {
+            newUser = document.createElement("customer");
+            newUser.setAttribute("role",user.getRole());
+        }
 
             newUser.setAttribute("password",user.getPassword());
             newUser.setAttribute("username",user.getUsername());

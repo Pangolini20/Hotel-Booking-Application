@@ -2,6 +2,7 @@ package controllers;
 
 import Database.User;
 import Tools.LoadDatabase;
+import com.sun.deploy.security.SelectableSecurityManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,9 +31,8 @@ public class Login implements Initializable
 
     private ArrayList<User> database;
 
-    private boolean check_credentials() throws NoSuchAlgorithmException {
-        for(User e : database)
-        {
+    private boolean check_credentials(User e) throws NoSuchAlgorithmException {
+
             String input_password=generateHash(pass_field.getText());
 
             if(e.getUsername().equals(user_text.getText()))
@@ -40,21 +40,40 @@ public class Login implements Initializable
                     return true;
                 else
                     return false;
-        }
+
 
         return false;
     }
 
+    private User auth()
+    {
+        for(User e : database)
+        {
+            try {
+                if(check_credentials(e))
+                    return e;
+            } catch (NoSuchAlgorithmException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
     public void authentification()
     {
-        try {
-            if(check_credentials())
-            {
+        User login=auth();
+
+        if(login !=null)
+        {
+            if(login.getRole().equals("Customer"))
+                goto_mm_customer();
+            else
                 goto_mm_hotel_owner();
-            }
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
         }
+        else
+            System.out.println("Invalid credentials");
+
     }
 
     public void goto_mm_hotel_owner()
@@ -73,6 +92,23 @@ public class Login implements Initializable
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    public void goto_mm_customer()
+    {
+        Stage stage;
+        Parent root=null;
+
+        stage = (Stage) log_button.getScene().getWindow();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/fxml/customer/mainmenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
      public void goto_register()
