@@ -32,7 +32,7 @@ public class XMLCreator {
         }
         Document document = null;
         try {
-            document = documentBuilder.parse("/Database/database.xml");
+            document = documentBuilder.parse("src/main/java/Database/database.xml");
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -79,7 +79,7 @@ public class XMLCreator {
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }
-        StreamResult result = new StreamResult("./src/database.xml");
+        StreamResult result = new StreamResult("src/main/java/Database/database.xml");
         try {
             transformer.transform(source, result);
         } catch (TransformerException e) {
