@@ -2,6 +2,7 @@ package Tools;
 
 import Database.Customer;
 import Database.HotelOwner;
+import Database.Hotelroom;
 import Database.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -50,6 +51,14 @@ public class XMLCreator {
             newUser.setAttribute("EIN",((HotelOwner) user).getEIN());
             newUser.setAttribute("address",((HotelOwner) user).getAddress());
             newUser.setAttribute("facilities",((HotelOwner) user).getFacilities());
+
+            /*Element room=document.createElement("room");
+            room.setAttribute("size","200");
+            room.setAttribute("available","true");
+            room.setAttribute("ID","465");
+            room.setAttribute("price","20");
+            newUser.appendChild(room);*/
+
         }
         else if(user instanceof Customer) {
             newUser = document.createElement("customer");
@@ -87,5 +96,12 @@ public class XMLCreator {
         }
 
     }
+
+    public static void createRoom(Hotelroom room)
+    {
+
+    }
+
+
 
 }

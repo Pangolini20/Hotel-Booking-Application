@@ -2,8 +2,9 @@ package Database;
 
 public class Hotelroom {
 
+    private String ID;
     private double size,price;
-    boolean available;
+    private boolean available;
 
     public Hotelroom(double size, double price, boolean is_avalaible) {
         this.size = size;

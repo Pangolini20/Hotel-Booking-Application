@@ -74,12 +74,6 @@ public class LoadDatabase {
 
     }
 
-
-
-
-    /***************************************************
-     THINK OF HOW TO MAKE THE LOGIN PROCESS WORK
-     /***************************************************/
     private /*static*/ void listAllAttributes(Element element) {
 
         if(element.getNodeName().equals("hotelowner"))
@@ -89,7 +83,7 @@ public class LoadDatabase {
         else
             user=new Customer();
 
-       // System.out.println("List attributes for node: " + element.getNodeName());
+       System.out.println("List attributes for node: " + element.getNodeName());
 
         // get a map containing the attributes of this node
         NamedNodeMap attributes = element.getAttributes();
@@ -104,7 +98,7 @@ public class LoadDatabase {
             String attrName = attr.getNodeName();
             String attrValue = attr.getNodeValue();
             superSetter(element.getNodeName(),attrName,attrValue);
-            //System.out.println("Found attribute: " + attrName + " with value: " + attrValue);
+            System.out.println("Found attribute: " + attrName + " with value: " + attrValue);
         }
 
 
@@ -114,12 +108,22 @@ public class LoadDatabase {
 
     private /*static*/ User user;
 
+    /*
+    * Implement a room setter and add them to the array
+    *
+    *
+    * */
+    public void roomSetter(String attrName,String attrValue)
+    {
+
+
+    }
 
     public /*static*/ void superSetter(String node_name,String attrName, String attrValue)
     {
 
-        switch (attrName)
-        {
+            switch (attrName)
+            {
             case "EIN":((HotelOwner)user).setEIN(attrValue);
                 break;
 
