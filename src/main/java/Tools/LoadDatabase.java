@@ -83,7 +83,7 @@ public class LoadDatabase {
         else
             user=new Customer();
 
-       System.out.println("List attributes for node: " + element.getNodeName());
+     //  System.out.println("List attributes for node: " + element.getNodeName());
 
         // get a map containing the attributes of this node
         NamedNodeMap attributes = element.getAttributes();
@@ -98,7 +98,7 @@ public class LoadDatabase {
             String attrName = attr.getNodeName();
             String attrValue = attr.getNodeValue();
             superSetter(element.getNodeName(),attrName,attrValue);
-            System.out.println("Found attribute: " + attrName + " with value: " + attrValue);
+         //   System.out.println("Found attribute: " + attrName + " with value: " + attrValue);
         }
 
 
