@@ -3,7 +3,7 @@ package Database;
 public class Request {
 
     private String ID,owner,status="pending",customer;
-    // status is pending,declined,confirmed
+    // status is pending,declined,confirmed,accepted;
     public Request()
     {}
 
