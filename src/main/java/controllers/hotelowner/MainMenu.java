@@ -1,6 +1,8 @@
 package controllers.hotelowner;
 
+import Tools.LoadReq;
 import Tools.LoadRooms;
+import Tools.ReqXML;
 import controllers.Remind;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -106,5 +108,8 @@ public class MainMenu implements Initializable {
         rd.readDB();
         Remind.room_arr=rd.getRoomlist();
 
+        LoadReq lr= new LoadReq();
+        lr.readDB();
+        Remind.req_arr=lr.getReq_list();
     }
 }
