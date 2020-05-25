@@ -1,6 +1,7 @@
 package Tools;
 
 import Database.Hotelroom;
+import Database.Request;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -55,6 +56,43 @@ public class EditRoomXML {
         }
 
 
+    }
+
+    public void editOccupy(Hotelroom r, Request req)
+    {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setValidating(false);
+        DocumentBuilder db = null;
+        try {
+            db = dbf.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+
+        Document doc=null;
+        try {
+            doc = db.parse(new FileInputStream(new File("src/main/resources/rooms.xml")));
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        NodeList entries = doc.getElementsByTagName("room");
+        Element room=null;
+
+        for(int i=0 ;i< entries.getLength();i++)
+        {
+            room = (Element) entries.item(i);
+            if(room.getAttribute("ID").equals(r.getID()) &&
+                    room.getAttribute("owner").equals(r.getOwner())) {
+
+              room.setAttribute("ocuppied_byusr",req.getCustomer());
+              room.setAttribute("available","false");
+
+                writeXMLFile(doc);
+                break;
+            }
+        }
     }
 
     private static void writeXMLFile(Document doc)

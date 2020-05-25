@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -66,6 +67,9 @@ public class DisplayRooms implements Initializable {
         table.setItems(getRoom());
     }
 
+    @FXML
+    Label txt;
+
     private ObservableList<Hotelroom> getRoom()
     {
         ObservableList<Hotelroom> rooms= FXCollections.observableArrayList();
@@ -81,6 +85,8 @@ public class DisplayRooms implements Initializable {
 
     public void book_room()
     {
+        txt.setText("A request has been sent to the owner");
+
         Hotelroom room = (Hotelroom) table.getSelectionModel().getSelectedItem();
         Request req=new Request(room.getID(),room.getOwner(),Remind.username);
 

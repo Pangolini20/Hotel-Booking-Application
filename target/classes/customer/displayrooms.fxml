@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="280.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.customer.DisplayRooms">
+<AnchorPane prefHeight="280.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.customer.DisplayRooms">
    <children>
       <TableView fx:id="table" layoutX="25.0" layoutY="34.0" prefHeight="190.0" prefWidth="395.0">
         <columns>
@@ -18,7 +18,7 @@
         </columns>
       </TableView>
       <Button fx:id="back" layoutX="25.0" layoutY="235.0" mnemonicParsing="false" onAction="#goto_mm" prefHeight="25.0" prefWidth="49.0" text="Back" />
-      <Label layoutX="91.0" layoutY="239.0" prefHeight="17.0" prefWidth="242.0" />
+      <Label fx:id="txt" layoutX="91.0" layoutY="239.0" prefHeight="17.0" prefWidth="242.0" />
       <Button layoutX="355.0" layoutY="235.0" mnemonicParsing="false" onAction="#book_room" prefHeight="25.0" prefWidth="62.0" text="Book" />
    </children>
 </AnchorPane>

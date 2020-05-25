@@ -1,5 +1,6 @@
 package controllers.customer;
 
+import Tools.LoadReq;
 import Tools.LoadRooms;
 import controllers.Remind;
 import javafx.fxml.FXML;
@@ -85,5 +86,9 @@ public class MainMenu implements Initializable {
         LoadRooms lr=new LoadRooms();
         lr.readDB();
         Remind.room_arr=lr.getRoomlist();
+
+        LoadReq lreq= new LoadReq();
+        lreq.readDB();
+        Remind.req_arr=lreq.getReq_list();
     }
 }

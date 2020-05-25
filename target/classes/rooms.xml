@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><UU><room ID="1" available="true" nr_person="1" ocuppied_byusr="" owner="darius" price="1" size="1"/></UU>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<UU>
+<room ID="1" available="false" nr_person="1" ocuppied_byusr="b" owner="darius" price="1" size="1"/>
+<room ID="20" available="true" nr_person="20" ocuppied_byusr="" owner="darius" price="20" size="30"/>
+<room ID="5" available="true" nr_person="5" ocuppied_byusr="" owner="darius" price="5" size="5"/>
+<room ID="10" available="false" nr_person="10" ocuppied_byusr="cust1" owner="darius" price="10" size="10"/>
+<room ID="22" available="true" nr_person="30" ocuppied_byusr="" owner="darius" price="55" size="10"/>
+</UU>

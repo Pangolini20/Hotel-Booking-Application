@@ -69,7 +69,6 @@ public class CheckRequests implements Initializable {
             EditReqXML ed=new EditReqXML();
             ed.EditStatus(req);
 
-
             LoadReq lr= new LoadReq();
             lr.readDB();
             Remind.req_arr=lr.getReq_list();
