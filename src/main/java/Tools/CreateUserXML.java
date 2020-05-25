@@ -20,7 +20,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import java.io.IOException;
 
-public class XMLCreator {
+public class CreateUserXML {
 
     public static void createXMLnode(User user)  {
 
@@ -33,7 +33,7 @@ public class XMLCreator {
         }
         Document document = null;
         try {
-            document = documentBuilder.parse("src/main/java/Database/database.xml");
+            document = documentBuilder.parse("src/main/resources/database.xml");
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -88,20 +88,13 @@ public class XMLCreator {
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }
-        StreamResult result = new StreamResult("src/main/java/Database/database.xml");
+        StreamResult result = new StreamResult("src/main/resources/database.xml");
         try {
             transformer.transform(source, result);
         } catch (TransformerException e) {
             e.printStackTrace();
         }
 
-    }
-
-    public static void createRoom(Hotelroom room)
-    {
-
-    }
-
-
+    } //
 
 }

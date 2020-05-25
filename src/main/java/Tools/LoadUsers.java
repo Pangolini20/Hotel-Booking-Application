@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LoadDatabase {
+public class LoadUsers {
 
     public /*static*/ ArrayList<User> userlist;
 
@@ -26,7 +26,7 @@ public class LoadDatabase {
         return userlist;
     }
 
-    public LoadDatabase() {
+    public LoadUsers() {
         userlist=new ArrayList<User>() ;
 
     }
@@ -43,8 +43,7 @@ public class LoadDatabase {
 
         Document doc = null;
         try {
-            doc = db.parse(new FileInputStream(new File("src/main/java/Database/database.xml")));
-
+            doc = db.parse(new FileInputStream(new File("src/main/resources/database.xml")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -100,10 +99,6 @@ public class LoadDatabase {
             superSetter(element.getNodeName(),attrName,attrValue);
          //   System.out.println("Found attribute: " + attrName + " with value: " + attrValue);
         }
-
-
-
-
     }
 
     private /*static*/ User user;
@@ -115,7 +110,6 @@ public class LoadDatabase {
     * */
     public void roomSetter(String attrName,String attrValue)
     {
-
 
     }
 
