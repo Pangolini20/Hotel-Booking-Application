@@ -36,7 +36,6 @@ public class ManageRoom implements Initializable
     @FXML TableColumn <Hotelroom,String> col_5;
     @FXML TableColumn <Hotelroom,String> col_6;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        col_1.setCellValueFactory((new PropertyValueFactory <Hotelroom,String> ("ID")));
@@ -66,6 +65,18 @@ public class ManageRoom implements Initializable
     @FXML
     TextField tf_id,tf_size,tf_nrperson,tf_price;
 
+    private boolean check_repeat(Hotelroom r)
+    {
+        for( Hotelroom e : Remind.room_arr)
+        {
+            if(r.getOwner().equals(e.getOwner())
+                    && r.getID().equals(e.getID()))
+                return  false;
+        }
+
+        return true;
+    }
+
     public void back_mm()
     {
         FXMLLoader loader = new FXMLLoader();
@@ -90,14 +101,25 @@ public class ManageRoom implements Initializable
     {
         Hotelroom new_room=new Hotelroom(tf_id.getText(), Remind.username,tf_size.getText(),
                 tf_price.getText(),tf_nrperson.getText());
-        createRoom(new_room);
 
-        table.getItems().add(new_room);
-        tf_id.clear();
-        tf_size.clear();
-        tf_price.clear();
-        tf_nrperson.clear();
+        if(check_repeat(new_room)==true) {
 
+            createRoom(new_room);
+
+            table.getItems().add(new_room);
+            tf_id.clear();
+            tf_size.clear();
+            tf_price.clear();
+            tf_nrperson.clear();
+
+            LoadRooms lr=new LoadRooms();
+            lr.readDB();
+            Remind.room_arr=lr.getRoomlist();
+
+            URL url=null;
+
+            initialize(url, null);
+        }
         //reload;
     }
 
@@ -109,7 +131,6 @@ public class ManageRoom implements Initializable
 
         DeleteRoomXML f=new DeleteRoomXML();
         f.deleteRoom(obj);
-
     }
 
     public void edit_room()
@@ -119,8 +140,15 @@ public class ManageRoom implements Initializable
         Hotelroom edit=new Hotelroom(tf_id.getText(),Remind.username,tf_size.getText(),
                 tf_price.getText(),tf_nrperson.getText());
 
+        if(check_repeat(edit)==true){
+
         EditRoomXML ed=new EditRoomXML();
         ed.editRoom(obj,edit);
+
+        tf_id.clear();
+        tf_size.clear();
+        tf_price.clear();
+        tf_nrperson.clear();
 
         LoadRooms lr=new LoadRooms();
         lr.readDB();
@@ -128,8 +156,6 @@ public class ManageRoom implements Initializable
 
         URL url=null;
 
-        initialize(url,
-                null);
-
+        initialize(url, null);}
     }
 }

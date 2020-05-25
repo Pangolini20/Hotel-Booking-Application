@@ -42,7 +42,7 @@ public class DeleteRoomXML
              room = (Element) entries.item(i);
              if(room.getAttribute("ID").equals(r.getID()) /*&&
                      room.getAttribute("owner").equals(r.getOwner())*/) {
-                 System.out.println(room.getAttribute("ID"));
+               //  System.out.println(room.getAttribute("ID"));
                  root.removeChild(room);
                  writeXMLFile(doc);
                  break;
