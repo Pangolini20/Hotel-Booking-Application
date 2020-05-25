@@ -4,6 +4,7 @@ import Database.Hotelroom;
 import Tools.DeleteRoomXML;
 
 import Tools.EditRoomXML;
+import Tools.LoadRooms;
 import controllers.Remind;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -120,6 +121,15 @@ public class ManageRoom implements Initializable
 
         EditRoomXML ed=new EditRoomXML();
         ed.editRoom(obj,edit);
+
+        LoadRooms lr=new LoadRooms();
+        lr.readDB();
+        Remind.room_arr=lr.getRoomlist();
+
+        URL url=null;
+
+        initialize(url,
+                null);
 
     }
 }

@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><UU>
-    
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<UU>
 
 
-
-
-
-<room ID="100" available="true" nr_person="100" ocuppied_byusr="" owner="darius" price="100" size="100"/></UU>
+<room ID="20" available="true" nr_person="20" ocuppied_byusr="" owner="darius" price="20" size="20"/>
+</UU>
