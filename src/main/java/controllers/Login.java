@@ -1,7 +1,7 @@
 package controllers;
 
 import Database.User;
-import Tools.LoadDatabase;
+import Tools.LoadUsers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +26,7 @@ public class Login implements Initializable
     @FXML TextField user_text;
     @FXML PasswordField pass_field;
     @FXML Button reg_button;
+
 
     private ArrayList<User> database;
 
@@ -66,9 +66,14 @@ public class Login implements Initializable
         if(login !=null)
         {
             if(login.getRole().equals("Customer"))
+            {
+                Remind.username=login.getUsername();
                 goto_mm_customer();
-            else
+            }
+            else{
+                Remind.username=login.getUsername();
                 goto_mm_hotel_owner();
+               }
         }
         else
             System.out.println("Invalid credentials");
@@ -133,7 +138,7 @@ public class Login implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-      LoadDatabase obj=new LoadDatabase();
+       LoadUsers obj=new LoadUsers();
         obj.readDB();
         database=obj.getArray();
     }

@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LoadDatabase {
+public class LoadUsers {
 
     public /*static*/ ArrayList<User> userlist;
 
@@ -26,7 +26,7 @@ public class LoadDatabase {
         return userlist;
     }
 
-    public LoadDatabase() {
+    public LoadUsers() {
         userlist=new ArrayList<User>() ;
 
     }
@@ -43,8 +43,7 @@ public class LoadDatabase {
 
         Document doc = null;
         try {
-            doc = db.parse(new FileInputStream(new File("src/main/java/Database/database.xml")));
-
+            doc = db.parse(new FileInputStream(new File("src/main/resources/database.xml")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -74,12 +73,6 @@ public class LoadDatabase {
 
     }
 
-
-
-
-    /***************************************************
-     THINK OF HOW TO MAKE THE LOGIN PROCESS WORK
-     /***************************************************/
     private /*static*/ void listAllAttributes(Element element) {
 
         if(element.getNodeName().equals("hotelowner"))
@@ -89,7 +82,7 @@ public class LoadDatabase {
         else
             user=new Customer();
 
-       // System.out.println("List attributes for node: " + element.getNodeName());
+     //  System.out.println("List attributes for node: " + element.getNodeName());
 
         // get a map containing the attributes of this node
         NamedNodeMap attributes = element.getAttributes();
@@ -104,22 +97,27 @@ public class LoadDatabase {
             String attrName = attr.getNodeName();
             String attrValue = attr.getNodeValue();
             superSetter(element.getNodeName(),attrName,attrValue);
-            //System.out.println("Found attribute: " + attrName + " with value: " + attrValue);
+         //   System.out.println("Found attribute: " + attrName + " with value: " + attrValue);
         }
-
-
-
-
     }
 
     private /*static*/ User user;
 
+    /*
+    * Implement a room setter and add them to the array
+    *
+    *
+    * */
+    public void roomSetter(String attrName,String attrValue)
+    {
+
+    }
 
     public /*static*/ void superSetter(String node_name,String attrName, String attrValue)
     {
 
-        switch (attrName)
-        {
+            switch (attrName)
+            {
             case "EIN":((HotelOwner)user).setEIN(attrValue);
                 break;
 

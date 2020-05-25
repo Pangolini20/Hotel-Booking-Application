@@ -1,8 +1,11 @@
 package Database;
 
+import java.util.ArrayList;
+
 public class HotelOwner extends User {
 
     private String EIN,address,facilities;
+    private ArrayList<Hotelroom> list=new ArrayList<Hotelroom>();
 
     public HotelOwner(String username, String password, String full_name, String phone,String ein,String address,String facilities)
     {
@@ -10,6 +13,11 @@ public class HotelOwner extends User {
         this.EIN = ein;
         this.address = address;
         this.facilities = facilities;
+    }
+
+    public void add(Hotelroom e)
+    {
+        list.add(e);
     }
 
     public HotelOwner(){}

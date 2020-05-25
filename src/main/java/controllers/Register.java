@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 import static Database.Security.generateHash;
 
-import static Tools.XMLCreator.createXMLnode;
+import static Tools.CreateUserXML.createXMLnode;
 
 public class Register implements Initializable
 {

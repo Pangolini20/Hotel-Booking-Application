@@ -1,12 +1,9 @@
 package Tools;
 
-import Database.Customer;
-import Database.HotelOwner;
-import Database.User;
+import Database.Hotelroom;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,13 +13,12 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import java.io.IOException;
 
-public class XMLCreator {
+public class RoomCreatorXML {
 
-    public static void createXMLnode(User user)  {
-
+    public static void createRoom(Hotelroom room)
+    {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         try {
@@ -32,43 +28,26 @@ public class XMLCreator {
         }
         Document document = null;
         try {
-            document = documentBuilder.parse("src/main/java/Database/database.xml");
+            document = documentBuilder.parse("src/main/resources/rooms.xml");
         } catch (SAXException e) {
-            e.printStackTrace();
+                    e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-       //* code that adds users to database
         Element root=null;
         root = document.getDocumentElement();
 
-        Element newUser=null;
-        if(user instanceof HotelOwner) {
-            newUser = document.createElement("hotelowner");
-            newUser.setAttribute("role",user.getRole());
-            newUser.setAttribute("EIN",((HotelOwner) user).getEIN());
-            newUser.setAttribute("address",((HotelOwner) user).getAddress());
-            newUser.setAttribute("facilities",((HotelOwner) user).getFacilities());
-        }
-        else if(user instanceof Customer) {
-            newUser = document.createElement("customer");
-            newUser.setAttribute("role",user.getRole());
-        }
+        Element new_room=document.createElement("room");
+        new_room.setAttribute("ID",room.getID());
+        new_room.setAttribute("owner",room.getOwner());
+        new_room.setAttribute("price",room.getPrice());
+        new_room.setAttribute("size",room.getSize());
+        new_room.setAttribute("available",String.valueOf(room.isAvailable()));
+        new_room.setAttribute("ocuppied_byusr",room.getUsr_occup());
+        new_room.setAttribute("nr_person",room.getNr_pers());
 
-            newUser.setAttribute("password",user.getPassword());
-            newUser.setAttribute("username",user.getUsername());
-            newUser.setAttribute("phone",user.getPhone());
-            newUser.setAttribute("full_name",user.getFull_name());
-
-
-
-        /* Element name = document.createElement("name");
-        name.appendChild(document.createTextNode(server.getName()));
-        newServer.appendChild(name);
-        */
-
-        root.appendChild(newUser);
+        root.appendChild(new_room);
         //*
         DOMSource source = new DOMSource(document);
 
@@ -79,7 +58,7 @@ public class XMLCreator {
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }
-        StreamResult result = new StreamResult("src/main/java/Database/database.xml");
+        StreamResult result = new StreamResult("src/main/resources/rooms.xml");
         try {
             transformer.transform(source, result);
         } catch (TransformerException e) {
@@ -87,5 +66,4 @@ public class XMLCreator {
         }
 
     }
-
 }

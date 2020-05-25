@@ -1,11 +1,14 @@
 package controllers.hotelowner;
 
+import Tools.LoadRooms;
+import controllers.Remind;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -93,9 +96,15 @@ public class MainMenu implements Initializable {
         stage.show();
     }
 
+    @FXML
+    Label welcome;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        welcome.setText("Welcome " + Remind.username +" !");
+        LoadRooms rd=new LoadRooms();
+        rd.readDB();
+        Remind.room_arr=rd.getRoomlist();
 
     }
 }
