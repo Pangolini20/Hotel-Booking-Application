@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 
 
-<AnchorPane prefHeight="305.0" prefWidth="485.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.customer.CheckOrderStatus">
+<AnchorPane prefHeight="305.0" prefWidth="485.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.customer.CheckOrderStatus">
    <children>
       <TableView fx:id="table" layoutX="40.0" layoutY="31.0" prefHeight="217.0" prefWidth="300.0">
         <columns>
