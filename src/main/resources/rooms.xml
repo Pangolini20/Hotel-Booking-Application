@@ -1,3 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><UU>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<UU>
 <room ID="1" available="true" nr_person="1" ocuppied_byusr="" owner="darius" price="1" size="1"/>
-<room ID="30" available="false" nr_person="2" ocuppied_byusr="" owner="a" price="2" size="2"/></UU>
+<room ID="30" available="false" nr_person="2" ocuppied_byusr="" owner="a" price="2" size="2"/>
+</UU>

@@ -1,6 +1,8 @@
 package controllers.customer;
 
 import Database.Hotelroom;
+import Database.Request;
+import Tools.ReqXML;
 import controllers.Remind;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,8 +81,10 @@ public class DisplayRooms implements Initializable {
 
     public void book_room()
     {
+        Hotelroom room = (Hotelroom) table.getSelectionModel().getSelectedItem();
+        Request req=new Request(room.getID(),room.getOwner(),Remind.username);
 
-
-
+        ReqXML rx= new ReqXML();
+        rx.createReq(req);
     }
 }
