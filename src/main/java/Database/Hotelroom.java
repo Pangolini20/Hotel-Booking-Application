@@ -8,7 +8,6 @@ public class Hotelroom {
     private String nr_pers;
 
     public Hotelroom() {
-
     }
 
     public String getNr_pers() {
